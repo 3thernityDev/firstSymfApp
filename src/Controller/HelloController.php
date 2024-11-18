@@ -21,4 +21,15 @@ class HelloController extends AbstractController
     {
         return $this->render("hello/index.html.twig", ["message" => "Do you know where my mom is ? I think I lost her ... 😭"]);
     }
+    // Function avec variables
+
+    #[Route(
+        '/var/{jeux}',
+        name: 'app_var',
+        methods: ['POST']
+    )]
+    public function show(string $jeux)
+    {
+        return $this->render("hello/index.html.twig", ["message" => "Jeux: $jeux"]);
+    }
 }
