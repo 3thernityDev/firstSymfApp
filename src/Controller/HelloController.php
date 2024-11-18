@@ -2,16 +2,23 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class HelloController extends AbstractController
 {
+    function __construct(
+        private LoggerInterface $logs
+    ) {}
+
+
     // First routes
     #[Route('/hello', name: 'app_hello')]
-    public function bidule()
+    public function bidule(LoggerInterface $logs)
     {
+        $logs->info("index ok, test");
         return $this->render("hello/index.html.twig", ["message" => "The end is near ⚠️"]);
     }
 
