@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Arbre;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,9 @@ class HelloController extends AbstractController
     #[Route('/hello', name: 'app_hello')]
     public function bidule(LoggerInterface $logs)
     {
+        $sapin = new Arbre();
+        $sapin->setNom("Sapin");
+        $sapin->setTaille(5);
         $logs->info("index ok, test");
         return $this->render("hello/index.html.twig", ["message" => "The end is near ⚠️"]);
     }
