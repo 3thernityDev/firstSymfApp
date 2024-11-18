@@ -16,7 +16,7 @@ class HelloController extends AbstractController
     }
 
     // Second routes
-    #[Route('/mom', name: 'app_hello')]
+    #[Route('/mom', name: 'app_mom')]
     public function mom()
     {
         return $this->render("hello/index.html.twig", ["message" => "Do you know where my mom is ? I think I lost her ... 😭"]);
